@@ -12,7 +12,7 @@
 
     <groupId>com.mixram.telegram.microservices</groupId>
     <artifactId>utilities</artifactId>
-    <version>0.0.1.0</version>
+    <version>0.0.2.0</version>
     <name>utilities</name>
     <description>Utilities (Ukrainian telegram group https://t.me/ukrainian_3D)</description>
 
