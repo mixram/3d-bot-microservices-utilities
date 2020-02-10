@@ -8,6 +8,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.databind.ObjectWriter
 import com.fasterxml.jackson.databind.SerializationFeature
+import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 
 /**
  * File for static methods providing work with Json.
@@ -82,10 +83,10 @@ fun <T> fromJson(json: String?,
  * @since 0.0.2.0
  */
 fun <T> fromJson(json: String?,
-                 clazz: Class<T>?): T {
+                 clazz: Class<T>): T {
     return try {
         OBJECT_MAPPER.readValue(json, clazz)
-    } catch (e: java.lang.Exception) {
+    } catch (e: Exception) {
         throw JsonException(e)
     }
 }
@@ -95,7 +96,9 @@ fun <T> fromJson(json: String?,
  */
 private class CustomJsonMapper : ObjectMapper() {
     init {
-        setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
+        registerKotlinModule()
+        setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY)
+//        setVisibility(PropertyAccessor.CREATOR, JsonAutoDetect.Visibility.ANY)
         configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false)
         configure(DeserializationFeature.READ_UNKNOWN_ENUM_VALUES_AS_NULL, true)
         configure(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS, false)
