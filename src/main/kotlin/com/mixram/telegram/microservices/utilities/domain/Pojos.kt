@@ -9,18 +9,20 @@ import java.math.BigDecimal
  * @author mixram on 2020-02-04.
  * @since 0.0.1.0
  */
-data class ParseData(@JsonProperty("title") private val pageTitle: String? = null,
-                     @JsonProperty("name") private val productName: String? = null,
-                     @JsonProperty("url") private val productUrl: String? = null,
-                     @JsonProperty("commonUrl") private val commonUrl: String? = null,
-                     @JsonProperty("shopUrl") private val shopUrl: String? = null,
-                     @JsonProperty("oldPrice") private val productOldPrice: BigDecimal? = null,
-                     @JsonProperty("salePrice") private val productSalePrice: BigDecimal? = null,
-                     @JsonProperty("percent") private val productDiscountPercent: BigDecimal? = null,
-                     @JsonProperty("type") private val type: PlasticType? = null,
-                     @JsonProperty("inStock") private val isInStock: Boolean? = null)
+data class ParseData(@JsonProperty("title") val pageTitle: String? = null,
+                     @JsonProperty("name") val productName: String? = null,
+                     @JsonProperty("url") val productUrl: String? = null,
+                     @JsonProperty("commonUrl") val commonUrl: String? = null,
+                     @JsonProperty("shopUrl") val shopUrl: String? = null,
+                     @JsonProperty("oldPrice") val productOldPrice: BigDecimal? = null,
+                     @JsonProperty("salePrice") val productSalePrice: BigDecimal? = null,
+                     @JsonProperty("percent") val productDiscountPercent: BigDecimal? = null,
+                     @JsonProperty("type") val type: PlasticType? = null,
+                     @JsonProperty("inStock") val isInStock: Boolean? = null)
 
 /**
- * @since
+ * @since 0.0.3.0
  */
-data class Data3DPlastic()
+data class Data3DPlastic(var shop: Shop3D,
+                         val data: List<ParseData>,
+                         val brokenUrls: List<ParseData>)

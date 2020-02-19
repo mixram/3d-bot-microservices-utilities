@@ -143,3 +143,17 @@ enum class PlasticType(val publicName: String) {
      */
     REZIN("REZIN")
 }
+
+/**
+ * @since 0.0.3.0
+ */
+enum class Shop3D(val nameMain: String,
+                  val nameAlt: String,
+                  val url: String) {
+    SHOP_3DUA("3DUA", "3dua.com.ua", "https://3dua.com.ua/plastik-dlya-3d-printera"),
+    SHOP_U3DF("U3DF", "u3df.com.ua", "https://u3df.com.ua"),
+    SHOP_MONOFILAMENT("MonoFilament", "monofilament.com.ua", "https://monofilament.com.ua/products/standartnye-materialy/"),
+    SHOP_PLEXIWIRE("Plexiwire", "shop.plexiwire.com.ua", "https://shop.plexiwire.com.ua/plexiwire-filament/"),
+    SHOP_3DPLAST("3DPlast", "3dplast.biz", "https://3dplast.biz"),
+    SHOP_DASPLAST("DASplast", "dasplast.com", "https://dasplast.com")
+}
